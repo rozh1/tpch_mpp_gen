@@ -18,35 +18,35 @@ class TblToCsvConverter:
         self.file_list = {
             "customer.tbl": {
                 "name": "customer.csv",
-                "header": "C_CUSTKEY:int,C_NAME:string,C_ADDRESS:string,C_NATIONKEY:int,C_PHONE:string,C_ACCTBAL:float,C_MKTSEGMENT:string,C_COMMENT:string"
+                "header": "C_CUSTKEY:long,C_NAME:string,C_ADDRESS:string,C_NATIONKEY:long,C_PHONE:string,C_ACCTBAL:float,C_MKTSEGMENT:string,C_COMMENT:string"
             },
             "lineitem.tbl": {
                 "name": "lineitem.csv",
-                "header": "L_ORDERKEY:int,L_PARTKEY:int,L_SUPPKEY:int,L_LINENUMBER:int,L_QUANTITY:float,L_EXTENDEDPRICE:float,L_DISCOUNT:float,L_TAX:float,L_RETURNFLAG:string,L_LINESTATUS:string,L_SHIPDATE:date,L_COMMITDATE:date,L_RECEIPTDATE:date,L_SHIPINSTRUCT:string,L_SHIPMODE:string,L_COMMENT:string"
+                "header": "L_ORDERKEY:long,L_PARTKEY:long,L_SUPPKEY:long,L_LINENUMBER:int,L_QUANTITY:float,L_EXTENDEDPRICE:float,L_DISCOUNT:float,L_TAX:float,L_RETURNFLAG:string,L_LINESTATUS:string,L_SHIPDATE:date,L_COMMITDATE:date,L_RECEIPTDATE:date,L_SHIPINSTRUCT:string,L_SHIPMODE:string,L_COMMENT:string"
             },
             "nation.tbl": {
                 "name": "nation.csv",
-                "header": "N_NATIONKEY:int,N_NAME:string,N_REGIONKEY:int,N_COMMENT:string"
+                "header": "N_NATIONKEY:long,N_NAME:string,N_REGIONKEY:long,N_COMMENT:string"
             },
             "orders.tbl": {
                 "name": "orders.csv",
-                "header": "O_ORDERKEY:int,O_CUSTKEY:int,O_ORDERSTATUS:string,O_TOTALPRICE:float,O_ORDERDATE:date,O_ORDERPRIORITY:string,O_CLERK:string,O_SHIPPRIORITY:int,O_COMMENT:string"
+                "header": "O_ORDERKEY:long,O_CUSTKEY:long,O_ORDERSTATUS:string,O_TOTALPRICE:float,O_ORDERDATE:date,O_ORDERPRIORITY:string,O_CLERK:string,O_SHIPPRIORITY:int,O_COMMENT:string"
             },
             "part.tbl": {
                 "name": "part.csv",
-                "header": "P_PARTKEY:int,P_NAME:string,P_MFGR:string,P_BRAND:string,P_TYPE:string,P_SIZE:int,P_CONTAINER:string,P_RETAILPRICE:float,P_COMMENT:string"
+                "header": "P_PARTKEY:long,P_NAME:string,P_MFGR:string,P_BRAND:string,P_TYPE:string,P_SIZE:int,P_CONTAINER:string,P_RETAILPRICE:float,P_COMMENT:string"
             },
             "partsupp.tbl": {
                 "name": "partsupp.csv",
-                "header": "PS_PARTKEY:int,PS_SUPPKEY:int,PS_AVAILQTY:int,PS_SUPPLYCOST:float,PS_COMMENT:string"
+                "header": "PS_PARTKEY:long,PS_SUPPKEY:long,PS_AVAILQTY:int,PS_SUPPLYCOST:float,PS_COMMENT:string"
             },
             "region.tbl": {
                 "name": "region.csv",
-                "header": "R_REGIONKEY:int,R_NAME:string,R_COMMENT:string"
+                "header": "R_REGIONKEY:long,R_NAME:string,R_COMMENT:string"
             },
             "supplier.tbl": {
                 "name": "supplier.csv",
-                "header": "S_SUPPKEY:int,S_NAME:string,S_ADDRESS:string,S_NATIONKEY:int,S_PHONE:string,S_ACCTBAL:float,S_COMMENT:string"
+                "header": "S_SUPPKEY:long,S_NAME:string,S_ADDRESS:string,S_NATIONKEY:long,S_PHONE:string,S_ACCTBAL:float,S_COMMENT:string"
             },
         }
 
