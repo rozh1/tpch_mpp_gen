@@ -1,1 +1,1 @@
-gendb\gendb.exe 120 7 6 1 4
+gendb\gendb.exe bin 5 7 6 1 4
