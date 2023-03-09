@@ -10,7 +10,7 @@ DBGEN_DIST_PATH = "tpch3_dist"
 DBGEN_PATH = os.path.join(DBGEN_DIST_PATH, "dbgen.exe")
 HELP_MSG = '''
 Usage: gendb.py csv 10 2 6 4 3
-    csv - тип хранилища [csv, bin]
+    csv - тип хранилища [csv, bin, bin_compressed]
     10 - DB size in GB
     2 - split count for node
     6 - node count [N]
@@ -64,8 +64,12 @@ if __name__ == "__main__":
                     "tpch3_dist", r"tpch_data\csv", thread_count)
                 converter.Run()
             case 'bin':
-                converter = tbl_to_bin.TblToCsvConverter(
+                converter = tbl_to_bin.TblToBinConverter(
                     "tpch3_dist", r"tpch_data\bin", thread_count)
+                converter.Run()
+            case 'bin_compressed':
+                converter = tbl_to_bin.TblToBinConverter(
+                    "tpch3_dist", r"tpch_data\bin_compressed", thread_count, True)
                 converter.Run()
 
         files = os.listdir(DBGEN_DIST_PATH)

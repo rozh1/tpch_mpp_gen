@@ -6,11 +6,12 @@ import time
 import subprocess
 
 
-class TblToCsvConverter:
-    def __init__(self, input_dir, output_dir, threads=4):
+class TblToBinConverter:
+    def __init__(self, input_dir, output_dir, threads=4, compress_output = False):
         self.data = []
         self.input_dir = input_dir
         self.output_dir = output_dir
+        self.compress_output = compress_output
         self.q = Queue(threads)
         self.__init_data()
 
@@ -165,7 +166,11 @@ class TblToCsvConverter:
             f.write(json)
 
         process = subprocess.Popen(
-            ["java", "-jar", "JBinaryTransformer.jar", input_file_path, ouput_file_path])
+            ["java", "-jar", "JBinaryTransformer.jar", 
+             input_file_path, 
+             ouput_file_path, 
+             "compress" if self.compress_output else "uncompressed"
+             ])
         process.wait()
         pass
 
@@ -253,5 +258,5 @@ if __name__ == "__main__":
     output_dir = sys.argv[1] if len(
         sys.argv) > 1 else r"D:\Clusterix\tpch\1G\csv_x4"
 
-    converter = TblToCsvConverter(input_dir, output_dir, 2)
+    converter = TblToBinConverter(input_dir, output_dir, 2)
     converter.Run()
