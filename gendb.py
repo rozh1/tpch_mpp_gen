@@ -50,9 +50,9 @@ if __name__ == "__main__":
 
     if len(sys.argv) <= 5:
         print(HELP_MSG)
-        #os._exit(0)
+        os._exit(0)
 
-    mode = 'as' #sys.argv[1]
+    mode = sys.argv[1]
     size = int(sys.argv[2]) if len(sys.argv) > 1 else 0.1
     split_count = int(sys.argv[3]) if len(sys.argv) > 2 else 4
     nodes_count = int(sys.argv[4]) if len(sys.argv) > 3 else 1

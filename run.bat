@@ -1,6 +1,6 @@
 echo off
 rem gendb.py csv 10 2 6 4 3
-rem     csv - С‚РёРї С…СЂР°РЅРёР»РёС‰Р° [csv, bin, bin_compressed]
+rem     csv - тип хранилища [csv, bin, bin_compressed]
 rem     10 - DB size in GB
 rem     2 - split count for node
 rem     6 - node count [N]
