@@ -7,7 +7,7 @@ import subprocess
 
 
 class TblToBinConverter:
-    def __init__(self, input_dir, output_dir, threads=4, compress_output = False):
+    def __init__(self, input_dir, output_dir, threads=4, compress_output=False):
         self.data = []
         self.input_dir = input_dir
         self.output_dir = output_dir
@@ -166,9 +166,9 @@ class TblToBinConverter:
             f.write(json)
 
         process = subprocess.Popen(
-            ["java", "-jar", "JBinaryTransformer.jar", 
-             input_file_path, 
-             ouput_file_path, 
+            ["java", "-jar", "JBinaryTransformer.jar",
+             input_file_path,
+             ouput_file_path,
              "compress" if self.compress_output else "uncompressed"
              ])
         process.wait()
@@ -242,6 +242,14 @@ class TblToBinConverter:
                                 self.output_dir, split_key, value["name"])
                             self.transform_file(
                                 temp_file, split_output_temp_dir, csv, json)
+
+                        if (split_key_set[0] != "1"):
+                            temp_file = os.path.join(self.input_dir, key+".tmp")
+                            open(temp_file, 'a').close()
+                            split_output_temp_dir = os.path.join(self.output_dir, split_key_set[0], value["name"])
+                            self.transform_file(temp_file, split_output_temp_dir, csv, json)
+
+                            continue
 
                 self.transform_file_async(
                     input_file_path, ouput_file_path, csv, json)

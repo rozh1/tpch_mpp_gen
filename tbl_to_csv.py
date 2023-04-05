@@ -121,6 +121,14 @@ class TblToCsvConverter:
                             transformer.transform_file(
                                 temp_file, split_output_temp_dir, header)
 
+                        if (split_key_set[0] != "1"):
+                            temp_file = os.path.join(self.input_dir, key+".tmp")
+                            open(temp_file, 'a').close()
+                            split_output_temp_dir = os.path.join(self.output_dir, split_key_set[0], value["name"])
+                            self.transform_file(temp_file, split_output_temp_dir, csv, json)
+
+                            continue
+
                 self.transform_file_async(
                 #transformer.transform_file(
                     input_file_path, ouput_file_path, header)
