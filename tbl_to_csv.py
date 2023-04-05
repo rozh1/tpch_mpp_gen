@@ -125,7 +125,7 @@ class TblToCsvConverter:
                             temp_file = os.path.join(self.input_dir, key+".tmp")
                             open(temp_file, 'a').close()
                             split_output_temp_dir = os.path.join(self.output_dir, split_key_set[0], value["name"])
-                            self.transform_file(temp_file, split_output_temp_dir, csv, json)
+                            self.transform_file(temp_file, split_output_temp_dir, header)
 
                             continue
 
